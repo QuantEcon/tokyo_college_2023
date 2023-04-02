@@ -1,0 +1,578 @@
+\documentclass[
+    xcolor={svgnames,dvipsnames},
+    hyperref={colorlinks, citecolor=DeepPink4, linkcolor=DarkRed, urlcolor=DarkBlue}
+    ]{beamer}  % for hardcopy add 'trans'
+
+\mode<presentation>
+{
+  \usetheme{Singapore}
+  % or ...
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+\usefonttheme{professionalfonts}
+%\usepackage[english]{babel}
+% or whatever
+%\usepackage[latin1]{inputenc}
+% or whatever
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+%\usepackage{fontspec}
+%\setmonofont{CMU Typewriter Text}
+%\setmonofont{Consolas}
+
+%%%%%%%%%%%%%%%%%%%%%% start my preamble %%%%%%%%%%%%%%%%%%%%%%
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+
+% Quotes at start of chapters / sections
+\usepackage{epigraph}  
+%\renewcommand{\epigraphflush}{flushleft}
+%\renewcommand{\sourceflush}{flushleft}
+\renewcommand{\epigraphwidth}{6in}
+
+%% Fonts
+
+%\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+%\usepackage{fontspec}
+%\defaultfontfeatures{Ligatures=TeX}
+%\setsansfont[Scale=MatchLowercase]{DejaVu Sans}
+%\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+%\setmathfont{Asana Math}
+%\setmainfont{Optima}
+%\setmathrm{Optima}
+%\setboldmathrm[BoldFont={Optima ExtraBlack}]{Optima Bold}
+
+% Some colors
+
+\definecolor{aquamarine}{RGB}{69,139,116}
+\definecolor{midnightblue}{RGB}{25,25,112}
+\definecolor{darkslategrey}{RGB}{47,79,79}
+\definecolor{darkorange4}{RGB}{139,90,0}
+\definecolor{dogerblue}{RGB}{24,116,205}
+\definecolor{blue2}{RGB}{0,0,238}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\definecolor{DarkOrange1}{RGB}{255,127,0}
+\definecolor{ForestGreen}{RGB}{34,139,34}
+\definecolor{DarkRed}{RGB}{139, 0, 0}
+\definecolor{DarkBlue}{RGB}{0, 0, 139}
+\definecolor{Blue}{RGB}{0, 0, 255}
+\definecolor{Brown}{RGB}{165,42,42}
+
+
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+
+%\renewcommand{\baselinestretch}{1.05}
+%\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+%\setlength{\parindent}{0pt}
+
+% Typesetting code
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\usepackage{minted}
+\setminted{mathescape, frame=lines, framesep=3mm}
+\usemintedstyle{friendly}
+%\newminted{python}{}
+%\newminted{c}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
+%\newminted{java}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
+%\newminted{julia}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
+%\newminted{ipython}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
+
+
+\newcommand{\Fact}{\textcolor{Brown}{\bf Fact. }}
+\newcommand{\Facts}{\textcolor{Brown}{\bf Facts }}
+\newcommand{\keya}{\textcolor{turquois4}{\bf Key Idea. }}
+\newcommand{\Factnodot}{\textcolor{Brown}{\bf Fact }}
+\newcommand{\Eg}{\textcolor{ForestGreen}{Example. }}
+\newcommand{\Egs}{\textcolor{ForestGreen}{Examples. }}
+\newcommand{\Ex}{{\bf Ex. }}
+
+
+
+\renewcommand{\theFancyVerbLine}{\sffamily
+    \textcolor[rgb]{0.5,0.5,1.0}{\scriptsize {\arabic{FancyVerbLine}}}}
+
+\newcommand{\navy}[1]{\textcolor{Blue}{\bf #1}}
+\newcommand{\brown}[1]{\textcolor{Brown}{\sf #1}}
+\newcommand{\green}[1]{\textcolor{ForestGreen}{\sf #1}}
+\newcommand{\blue}[1]{\textcolor{Blue}{\sf #1}}
+\newcommand{\navymth}[1]{\textcolor{Blue}{#1}}
+\newcommand{\emp}[1]{\textcolor{DarkOrange1}{\bf #1}}
+\newcommand{\red}[1]{\textcolor{Red}{\bf #1}}
+
+% Symbols, redefines, etc.
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\Prob}{Prob}
+\DeclareMathOperator{\determinant}{det}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\cov}{cov}
+\DeclareMathOperator{\corr}{corr}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\mse}{mse}
+\DeclareMathOperator{\se}{se}
+\DeclareMathOperator{\row}{row}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\range}{rng}
+\DeclareMathOperator{\dimension}{dim}
+\DeclareMathOperator{\bias}{bias}
+
+
+% mics short cuts and symbols
+\newcommand{\st}{\ensuremath{\ \mathrm{s.t.}\ }}
+\newcommand{\setntn}[2]{ \{ #1 : #2 \} }
+\newcommand{\cf}[1]{ \lstinline|#1| }
+\newcommand{\fore}{\therefore \quad}
+\newcommand{\tod}{\stackrel { d } {\to} }
+\newcommand{\toprob}{\stackrel { p } {\to} }
+\newcommand{\toms}{\stackrel { ms } {\to} }
+\newcommand{\eqdist}{\stackrel {\textrm{ \scriptsize{d} }} {=} }
+\newcommand{\iidsim}{\stackrel {\textrm{ {\sc iid }}} {\sim} }
+\newcommand{\1}{\mathbbm 1}
+\newcommand{\dee}{\,{\rm d}}
+\newcommand{\given}{\, | \,}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+\newcommand{\boldA}{\mathbf A}
+\newcommand{\boldB}{\mathbf B}
+\newcommand{\boldC}{\mathbf C}
+\newcommand{\boldD}{\mathbf D}
+\newcommand{\boldM}{\mathbf M}
+\newcommand{\boldP}{\mathbf P}
+\newcommand{\boldQ}{\mathbf Q}
+\newcommand{\boldI}{\mathbf I}
+\newcommand{\boldX}{\mathbf X}
+\newcommand{\boldY}{\mathbf Y}
+\newcommand{\boldZ}{\mathbf Z}
+
+\newcommand{\bSigmaX}{ {\boldsymbol \Sigma_{\hboldbeta}} }
+\newcommand{\hbSigmaX}{ \mathbf{\hat \Sigma_{\hboldbeta}} }
+
+\newcommand{\RR}{\mathbbm R}
+\newcommand{\NN}{\mathbbm N}
+\newcommand{\PP}{\mathbbm P}
+\newcommand{\EE}{\mathbbm E \,}
+\newcommand{\XX}{\mathbbm X}
+\newcommand{\ZZ}{\mathbbm Z}
+\newcommand{\QQ}{\mathbbm Q}
+
+\newcommand{\fF}{\mathcal F}
+\newcommand{\dD}{\mathcal D}
+\newcommand{\lL}{\mathcal L}
+\newcommand{\gG}{\mathcal G}
+\newcommand{\hH}{\mathcal H}
+\newcommand{\nN}{\mathcal N}
+\newcommand{\pP}{\mathcal P}
+
+
+
+
+\title{Scientific Computing in Economics and Finance\\
+    Past, Present and Future}
+
+\author{John Stachurski}
+\institute{Tokyo College and Australian National University}
+
+
+\date{April 25th 2025}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+
+
+
+\section{Introduction}
+
+
+
+\begin{frame}
+    \frametitle{What do economists do?}
+
+    \begin{itemize}
+        \item Set interest rates at the BOJ
+            \vspace{0.3em}
+        \item Forecast tax revenues / assess policy changes
+            \vspace{0.3em}
+        \item Study competition policy (e.g., mergers, monopolies)
+            \vspace{0.3em}
+        \item Study pension plans
+            \vspace{0.3em}
+        \item Study the determinants of long run growth
+            \vspace{0.3em}
+        \item Study the impact of COVID / COVID relief policy
+    \end{itemize}
+
+            \vspace{0.3em}
+            \vspace{0.3em}
+
+    \Eg What will be the impact of a 100BPS $\uparrow$ in the federal funds
+    rate on unemployment in one year?
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Is economics a science?}
+
+    \brown{The goal of the scientist is to comprehend the phenomena of the
+    universe that he observes around him.}
+
+            \vspace{0.3em}
+    \brown{To prove that he understands he must be able to predict.}
+
+            \vspace{0.3em}
+    \brown{To predict quantitatively one must have a mechanism for producing
+    numbers.}
+
+            \vspace{0.3em}
+    \brown{This necessarily entails a mathematical model.}
+
+            \vspace{0.3em}
+            \vspace{0.3em}
+            \vspace{0.3em}
+     -- Richard Bellman (1920 -- 1984)
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{So what is economic science?}
+
+    Why is economics different to astrophysics, chemistry, etc.?
+
+    \begin{itemize}
+        \item Economic outcomes depend on human choices
+            \vspace{0.3em}
+        \item Human choices depend on beliefs, incentives, etc.
+            \vspace{0.3em}
+        \item Economic processes are nonstationary (no immutable laws)
+    \end{itemize}
+
+            \vspace{0.3em}
+            \vspace{0.3em}
+            \vspace{0.3em}
+
+    \Eg The Lucas critique: it is naive to try to predict the effects
+        of a change in economic policy entirely on the basis of relationships
+        observed in historical data
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Extended example: the cobweb model}
+
+    An ``old'' economic model
+
+    \begin{itemize}
+        \item Benner (1876)
+        \item Haas and Ezekil (1926)
+        \item Ricci (1930)
+        \item Kaldor (1934, 1938)
+        \item Ezekil (1938)
+        \item Rosen, Murphy, and Scheinkman (1994)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    
+    \begin{figure}
+        \centering
+        \scalebox{.56}{\includegraphics{hog_prices.pdf}}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+
+    Ordinary models of supply and demand don't generate these cycles.
+
+    \begin{itemize}
+        \item find $p$ and $q$ from $q^d(p) = q^s(p)$
+    \end{itemize}
+
+    \begin{figure}
+        \centering
+        \scalebox{.36}{\includegraphics{hog_supply_demand.pdf}}
+    \end{figure}
+    
+
+\end{frame}
+
+\begin{frame}
+    
+    Hypotheses: 
+
+    \begin{itemize}
+        \item Farmers need time to raise hogs (say, one ``period'')
+            \vspace{0.3em}
+        \item Farmers forecast future prices using past and current prices
+    \end{itemize}
+
+    Outcomes:
+
+    \begin{enumerate}
+        \item Suppose price is currently high
+            \vspace{0.3em}
+        \item Farmers $\uparrow$ capacity, shift towards hog production
+            \vspace{0.3em}
+        \item Next period, high supply floods the market, prices $\downarrow$
+            \vspace{0.3em}
+        \item Seeing this low price, farmers $\downarrow$ capacity
+            \vspace{0.3em}
+        \item Next period, supply is low and prices $\uparrow$ ...
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+
+    In this scenario,
+    
+    $$
+        q^d(p_t) = q^s(p^e_{t-1})
+    $$
+
+    \begin{itemize}
+        \item $p^e_{t-1}$ is the \textbf{expected} time $t$ price, formed at $t-1$
+    \end{itemize}
+
+    \vspace{1em}
+    \vspace{1em}
+
+    But how to farmers form expectations?
+
+\end{frame}
+
+\begin{frame}
+    
+    First guess:
+    %
+    \begin{equation*}
+        p^e_{t-1} = p_{t-1}
+    \end{equation*}
+
+    So now we have
+
+    $$
+        q^d(p_t) = q^s(p_{t-1})
+    $$
+
+    Solving for $p_t$ gives
+
+    $$
+        p_t = f(p_{t-1})
+        \quad \text{where} \quad
+        f(p) = (q^d)^{-1} (q^s(p))
+    $$
+
+\end{frame}
+
+\begin{frame}
+    
+    \begin{figure}
+        \centering
+        \scalebox{.56}{\includegraphics{hog_45.pdf}}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}
+    
+    \begin{figure}
+        \centering
+        \scalebox{.56}{\includegraphics{hog_backward_ts.pdf}}
+    \end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}
+    
+    The model replicates cycles --- but there are problems!
+
+    \vspace{1em}
+    \vspace{1em}
+    Predictions are \emp{very sensitive} to how we model \emp{expectations}
+
+    \vspace{1em}
+    \vspace{1em}
+    \vspace{1em}
+    \Eg Suppose we switch to $p_{t-1}^e = \alpha p_{t-1} + (1-\alpha) p^e_{t-2}$ 
+
+    \vspace{1em}
+    \vspace{1em}
+    \begin{itemize}
+        \item Called ``adaptive expectations''
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    \begin{figure}
+        \centering
+        \scalebox{.42}{\includegraphics{hog_adaptive.pdf}}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+
+    Or we could use ``rational expectations''
+    
+    \begin{figure}
+        \centering
+        \scalebox{.36}{\includegraphics{hog_supply_demand.pdf}}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+
+    Lessons:
+    %
+    \begin{itemize}
+        \item Model predictions are very sensitive to behavior, expectations
+            \vspace{1em}
+        \item Modeling human behavior is essential
+            \vspace{1em}
+        \item The ``right'' way to model humans is unclear
+    \end{itemize}
+    
+        \vspace{1em}
+        \vspace{1em}
+    Summary: economic modeling is hard -- but we shouldn't give up!
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Scientific computing in economics}
+
+    \brown{Economists are relative newcomers to the
+        field of computational sciences...}
+
+            \vspace{0.3em}
+    \brown{Economists have long been influenced by dogmatic tribalism...}
+
+            \vspace{0.3em}
+    \brown{It would appear that many (so called) `theories' have been poorly
+    (if at all!) proven...}
+
+            \vspace{0.3em}
+    \brown{Computational models in economics are still often simplistic...}
+
+    \vspace{0.3em}
+    \vspace{0.3em}
+    \vspace{0.3em}
+    \begin{center}
+        -- Consultant's report on HPC in economics
+    \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+    
+     \begin{tabular}{cl}  
+         \begin{tabular}{c}
+           \includegraphics[height=6cm]{moniac.jpg}
+           \end{tabular}
+           & \begin{tabular}{l}
+             \parbox{0.6\linewidth}{%  change the parbox width as appropiate
+                Actually economists are pioneers
+
+                (William Phillips, 1949)
+             }
+         \end{tabular}  \\
+    \end{tabular}
+    
+
+\end{frame}
+
+\begin{frame}
+    
+    Examples of computational work in economics and finance
+
+    - DSE
+    - schelling
+    - Pricing a European option 
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Trends in scientific computing}
+
+    compare languages, talk about jit compilers, illustrate with google jax.
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{The limits of computer power}
+
+    * Linear assignment
+    * Brute force optimization
+        
+\end{frame}
+
+\begin{frame}
+    
+    * The importance of algorithms
+    * How algorithms interact with advances in hardware/software
+
+\end{frame}
+
+\begin{frame}
+
+    What about machine learning and AI?
+
+    * Why machine learning is not enough -- current inflation unprecedented -- think about that word
+    * Insufficient and nonstationary data -- forecasting GDP
+    * The need for careful mathematical modeling
+    
+\end{frame}
+
+
+
+\end{document}
+
+
