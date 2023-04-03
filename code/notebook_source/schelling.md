@@ -22,7 +22,6 @@ kernelspec:
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
-import quantecon as qe
 from numpy.random import uniform, randint
 from numba import njit
 
@@ -77,7 +76,7 @@ def update_agent(i, locations, types):
 
 def plot_distribution(locations, types, title, savepdf=False):
     " Plot the distribution of agents after cycle_num rounds of the loop."
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(8, 8))
     colors = 'lavender', 'navy'
     for agent_type, color in zip((0, 1), colors):
         idx = (types == agent_type)
@@ -157,17 +156,16 @@ def sim_random_select(max_iter=100_000, flip_prob=0.01, test_freq=10_000):
     if current_iter > max_iter:
         print(f"Terminating at iteration {current_iter}")
 
+```
+
+```{code-cell} ipython3
+sim_random_select(max_iter=0, flip_prob=0.01, test_freq=10_000)
 
 ```
 
 
 ```{code-cell} ipython3
-sim_random_select(max_iter=50_000, flip_prob=0.0, test_freq=10_000)
+sim_random_select(max_iter=60_000, flip_prob=0.01, test_freq=2_000)
 
 ```
 
-
-```{code-cell} ipython3
-sim_random_select(max_iter=200_000, flip_prob=0.01, test_freq=50_000)
-
-```

@@ -18,12 +18,10 @@ kernelspec:
 [John Stachurski](http://johnstachurski.net)
 
 ```{code-cell} ipython3
----
-nbpresent:
-  id: cacd76f0-600a-4ac9-ba39-ae23747177c8
-slideshow:
-  slide_type: '-'
----
+!pip install quantecon
+```
+
+```{code-cell} ipython3
 import numpy as np
 from numba import vectorize, jit, float64
 from quantecon.util import tic, toc

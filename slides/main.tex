@@ -59,7 +59,7 @@
 %\setmathfont{Asana Math}
 %\setmainfont{Optima}
 %\setmathrm{Optima}
-%\setboldmathrm[BoldFont={Optima ExtraBlack}]{Optima Bold}
+%\setboldmathrm[BoedFont={Optima ExtraBlack}]{Optima Bold}
 
 % Some colors
 
@@ -223,13 +223,11 @@
     \begin{itemize}
         \item Set interest rates at the BOJ
             \vspace{0.3em}
-        \item Forecast tax revenues / assess policy changes
+        \item Assess tax policies
             \vspace{0.3em}
-        \item Study competition policy 
+        \item Advise on competition policy 
             \vspace{0.3em}
         \item Study pension plans
-            \vspace{0.3em}
-        \item Study the determinants of long run growth
             \vspace{0.3em}
         \item Study the impact of COVID / COVID relief policy
     \end{itemize}
@@ -237,7 +235,7 @@
             \vspace{0.3em}
             \vspace{0.3em}
 
-    \Eg What will be the impact of a 100BPS $\uparrow$ in the federal funds
+    \Eg What will be the impact of a 25BPS $\uparrow$ in the federal funds
     rate on unemployment in one year?
 
 \end{frame}
@@ -245,6 +243,8 @@
 
 \begin{frame}
     \frametitle{Should economists use mathematical modeling?}
+
+    \pause
 
     \brown{The goal of the scientist is to comprehend the phenomena of the
     universe that he observes around him.}
@@ -272,11 +272,11 @@
     Why is economics different to astrophysics, chemistry, etc.?
 
     \begin{itemize}
+        \item Economic processes are nonstationary (no immutable laws)
+            \vspace{0.3em}
         \item Economic outcomes depend on human choices
             \vspace{0.3em}
         \item Human choices depend on beliefs, incentives, etc.
-            \vspace{0.3em}
-        \item Economic processes are nonstationary (no immutable laws)
     \end{itemize}
 
             \vspace{0.3em}
@@ -300,6 +300,7 @@
         \item Ricci (1930)
         \item Kaldor (1934, 1938)
         \item Ezekil (1938)
+        \item Harlow (1960)
         \item Rosen, Murphy, and Scheinkman (1994)
     \end{itemize}
 
@@ -338,7 +339,7 @@
     \begin{itemize}
         \item Farmers need time to raise hogs (say, one ``period'')
             \vspace{0.3em}
-        \item Farmers forecast future prices using past and current prices
+        \item Farmers forecast future prices using current prices
     \end{itemize}
 
     Outcomes:
@@ -431,7 +432,7 @@
     \vspace{1em}
     \vspace{1em}
     \vspace{1em}
-    \Eg Suppose we switch to $p_{t-1}^e = \alpha p_{t-1} + (1-\alpha) p^e_{t-2}$ 
+    \Eg Suppose we switch to $p_{t-1}^e = p^e_{t-2} + \alpha (p_{t-1} - p^e_{t-2}) $ 
 
     \vspace{1em}
     \vspace{1em}
@@ -469,7 +470,7 @@
     Lessons:
     %
     \begin{itemize}
-        \item Model predictions are very sensitive to behavior, expectations
+        \item Model predictions are very sensitive to expectations
             \vspace{1em}
         \item Modeling human behavior is essential
             \vspace{1em}
@@ -486,6 +487,13 @@
 \begin{frame}
     \frametitle{Scientific computing in economics}
 
+    Anonymous consultant's report on HPC in economics:
+
+    \vspace{0.3em}
+    \vspace{0.3em}
+    \vspace{0.3em}
+    \pause
+
     \brown{Economists are relative newcomers to the
         field of computational sciences...}
 
@@ -498,13 +506,6 @@
 
             \vspace{0.3em}
     \brown{Computational models in economics are still often simplistic...}
-
-    \vspace{0.3em}
-    \vspace{0.3em}
-    \vspace{0.3em}
-    \begin{center}
-        -- Consultant's report on HPC in economics
-    \end{center}
 
 \end{frame}
 
@@ -719,7 +720,7 @@ print("1 + 1 = ", sum)
     
     \begin{figure}
         \centering
-        \scalebox{.4}{\includegraphics{ppf.pdf}}
+        \scalebox{.5}{\includegraphics{ppf.pdf}}
     \end{figure}
 
 
@@ -752,31 +753,112 @@ print("1 + 1 = ", sum)
 
     Numba / Codon example
 
+    \url{foobar}
+
+\end{frame}
+
+
+
+    
+
+\begin{frame}
+
+    \frametitle{Trend 3: Parallelization}
+
+    CPU frequency (clock speed) growth is slowing
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.22}{\includegraphics{processor_clock.png}}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    Chip makers have responded by developing multi-core processors
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.2}{\includegraphics{dual_core.png}}
+       \end{center}
+    \end{figure}
+
+    Source: Wikipedia
+
+
+\end{frame}
+
+
+\begin{frame}
+
+    \navy{GPUs} are becoming increasingly important
+
+
+    \begin{figure}
+       \begin{center}
+        \scalebox{.16}{\includegraphics{gpu.jpg}}
+       \end{center}
+    \end{figure}
+
+    \vspace{0.5em}
+
+    Applications: machine learning, deep learning, etc.
+    
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{Support for Parallelization}
+    
+    While scientific computing environments best support parallelization?
+
+        \vspace{0.5em}
+        \vspace{0.5em}
+    %
+    \begin{itemize}
+        \item Most have some support
+        \vspace{0.5em}
+        \item but which make it easy to harness its power?
+    \end{itemize}
+
+    \vspace{0.5em}
+    \vspace{0.5em}
+
+    Current winner:
+    %
+    \begin{itemize}
+        \item Google JAX (Python library)
+            \vspace{0.5em}
+    \end{itemize}
+
 \end{frame}
 
 
 
 
 \begin{frame}
-    \frametitle{Trend 2: Parallelization}
-    
-    - Pricing a European option 
 
-        -- write on QE GPU server
+    Numba / Codon example
 
-        -- add a numba cuda version
-
-        -- shift to colab
+    \url{foobar}
 
 \end{frame}
+
+
+
 
 
 \begin{frame}
     \frametitle{The limits of computer power}
 
-    * Linear assignment
+    * Linear assignment?
 
-    * Brute force optimization
+    * Brute force optimization?
         
 \end{frame}
 
