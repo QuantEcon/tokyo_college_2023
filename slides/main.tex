@@ -3,6 +3,7 @@
     hyperref={colorlinks, citecolor=DeepPink4, linkcolor=DarkRed, urlcolor=DarkBlue}
     ]{beamer}  % for hardcopy add 'trans'
 
+
 \mode<presentation>
 {
   \usetheme{Pittsburgh}
@@ -94,6 +95,17 @@
 %\newminted{java}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
 %\newminted{julia}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
 %\newminted{ipython}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
+
+% Typesetting code
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\usepackage{minted}
+\usemintedstyle{friendly}
+\newminted{python}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
+\newminted{ipython}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
+\newminted{julia}{mathescape,frame=lines,framesep=4mm,bgcolor=bg}
+\newminted{c}{mathescape,linenos=true}
+\renewcommand{\theFancyVerbLine}{\sffamily
+    \textcolor[rgb]{0.5,0.5,1.0}{\scriptsize {\arabic{FancyVerbLine}}}}
 
 
 \newcommand{\Fact}{\textcolor{Brown}{\bf Fact. }}
@@ -223,26 +235,61 @@
     \begin{itemize}
         \item Set interest rates at the BOJ
             \vspace{0.3em}
+            \vspace{0.3em}
+            \vspace{0.3em}
         \item Assess tax policies
+            \vspace{0.3em}
+            \vspace{0.3em}
             \vspace{0.3em}
         \item Advise on competition policy 
             \vspace{0.3em}
-        \item Study pension plans
+            \vspace{0.3em}
+            \vspace{0.3em}
+        \item Assess pension plans
+            \vspace{0.3em}
+            \vspace{0.3em}
             \vspace{0.3em}
         \item Study the impact of COVID / COVID relief policy
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+    
+    Many problems addressed by economists are quantitative
+
+            \vspace{0.3em}
+            \vspace{0.3em}
+
+    \Egs 
+    %
+    \begin{itemize}
+        \item How will a 10\% increase in the top income tax rate affect GDP
+            over the next decade?
+            \vspace{0.3em}
+            \vspace{0.3em}
+        \item How will a two year increase in the retirement age affect
+            government debt?
+            \vspace{0.3em}
+            \vspace{0.3em}
+        \item What will be the impact of a 25 BPS $\uparrow$ in the federal
+            funds rate on unemployment next year?
     \end{itemize}
 
             \vspace{0.3em}
             \vspace{0.3em}
 
-    \Eg What will be the impact of a 25BPS $\uparrow$ in the federal funds
-    rate on unemployment in one year?
+    \begin{center}
+        Quantitative problems require mathematical/computational modeling
+    \end{center}
+
 
 \end{frame}
 
 
 \begin{frame}
-    \frametitle{Should economists use mathematical modeling?}
+    \frametitle{All science requires mathematical modeling}
 
     \pause
 
@@ -270,27 +317,28 @@
     \frametitle{How should economists build models?}
 
     Why is economics different to astrophysics, chemistry, etc.?
+            \vspace{0.3em}
+            \vspace{0.3em}
 
     \begin{itemize}
         \item Economic processes are nonstationary (no immutable laws)
             \vspace{0.3em}
+            \vspace{0.3em}
         \item Economic outcomes depend on human choices
+            \vspace{0.3em}
             \vspace{0.3em}
         \item Human choices depend on beliefs, incentives, etc.
     \end{itemize}
 
-            \vspace{0.3em}
-            \vspace{0.3em}
-            \vspace{0.3em}
 
-    \Eg The Lucas critique: it is naive to try to predict the effects
-        of a change in economic policy entirely on the basis of relationships
-        observed in historical data
+    %\Eg The Lucas critique: it is naive to try to predict the effects
+        %of a change in economic policy entirely on the basis of relationships
+        %observed in historical data
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{Extended example: the cobweb model}
+    \frametitle{Example: the cobweb model}
 
     An ``old'' economic model
 
@@ -316,21 +364,21 @@
 \end{frame}
 
 
-\begin{frame}
+%\begin{frame}
 
-    Ordinary models of supply and demand don't generate these cycles.
+    %Ordinary models of supply and demand don't generate these cycles.
 
-    \begin{itemize}
-        \item find $p$ and $q$ from $q^d(p) = q^s(p)$
-    \end{itemize}
+    %\begin{itemize}
+        %\item find $p$ and $q$ from $q^d(p) = q^s(p)$
+    %\end{itemize}
 
-    \begin{figure}
-        \centering
-        \scalebox{.36}{\includegraphics{hog_supply_demand.pdf}}
-    \end{figure}
+    %\begin{figure}
+        %\centering
+        %\scalebox{.42}{\includegraphics{hog_supply_demand.pdf}}
+    %\end{figure}
     
 
-\end{frame}
+%\end{frame}
 
 \begin{frame}
     
@@ -399,13 +447,25 @@
         f(p) = (q^d)^{-1} (q^s(p))
     $$
 
+
+    Now let's simulate...
+
 \end{frame}
+
+%\begin{frame}
+    
+    %\begin{figure}
+        %\centering
+        %\scalebox{.56}{\includegraphics{hog_45.pdf}}
+    %\end{figure}
+
+%\end{frame}
 
 \begin{frame}
     
     \begin{figure}
         \centering
-        \scalebox{.56}{\includegraphics{hog_45.pdf}}
+        \scalebox{.56}{\includegraphics{hog_backward_ts0.pdf}}
     \end{figure}
 
 \end{frame}
@@ -414,11 +474,21 @@
     
     \begin{figure}
         \centering
-        \scalebox{.56}{\includegraphics{hog_backward_ts.pdf}}
+        \scalebox{.56}{\includegraphics{hog_backward_ts1.pdf}}
     \end{figure}
 
 \end{frame}
 
+
+
+\begin{frame}
+    
+    \begin{figure}
+        \centering
+        \scalebox{.56}{\includegraphics{hog_backward_ts2.pdf}}
+    \end{figure}
+
+\end{frame}
 
 
 \begin{frame}
@@ -470,14 +540,14 @@
     Lessons:
     %
     \begin{enumerate}
-        \item Model predictions are very sensitive to expectations
+        \item modeling human behavior is essential
             \vspace{1em}
-        \item Modeling human behavior is essential
+        \item the ``right'' way to model humans is unclear
             \vspace{1em}
-        \item The ``right'' way to model humans is unclear
+        \item predictions are very sensitive to their expectations
             \vspace{1em}
-        \item Models are nonstationary because the way we predict is
-            nonstationary (AI assisted, etc.)
+        \item models are nonstationary because the way we predict is
+            nonstationary 
     \end{enumerate}
     
         \vspace{1em}
@@ -532,14 +602,27 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Modern scientific computing in economics}
+
+    There are many examples of modern, sophisticated scientific computing in
+    economics
+            \vspace{0.3em}
+            \vspace{0.3em}
+            \vspace{0.3em}
     
-    Examples of computational work in economics and finance
+    \Eg DeepHAM by Jiequn Han, Yucheng Yang, and Weinan E
 
-    - schelling  --- see code for EDTC 2nd ed
-
-    - DeepHAM
-
-    - Raj Chetty networks --- use some random network fig
+    \begin{itemize}
+        \item heterogeneous agent model
+            \vspace{0.3em}
+        \item firms and households linked by markets
+            \vspace{0.3em}
+        \item individual and aggregate risk
+            \vspace{0.3em}
+        \item general equilibium
+            \vspace{0.3em}
+        \item NNs to represent human reaction functions
+    \end{itemize}
 
 \end{frame}
 
@@ -730,7 +813,7 @@ print("1 + 1 = ", sum)
 
 \begin{frame}
 
-    Trade-Offs:
+    Trade-offs:
     
     \begin{figure}
         \centering
@@ -765,9 +848,17 @@ print("1 + 1 = ", sum)
 
 \begin{frame}
 
-    Numba / Codon example
+    \Eg \texttt{Numba} / \texttt{codon} generate fast machine code from Python
 
-    \url{foobar}
+    \vspace{0.5em}
+    \vspace{0.5em}
+    \vspace{0.5em}
+    \vspace{0.5em}
+    See code at
+    %
+    \begin{center}
+        \url{https://github.com/QuantEcon/tokyo_college_2023/}
+    \end{center}
 
 \end{frame}
 
@@ -788,6 +879,7 @@ print("1 + 1 = ", sum)
     \end{figure}
 
 \end{frame}
+
 
 
 \begin{frame}
@@ -825,44 +917,50 @@ print("1 + 1 = ", sum)
 \end{frame}
 
 
-
-\begin{frame}
-    \frametitle{Support for Parallelization}
+%\begin{frame}
+    %\frametitle{Support for Parallelization}
     
-    While scientific computing environments best support parallelization?
+    %While scientific computing environments best support parallelization?
 
-        \vspace{0.5em}
-        \vspace{0.5em}
-    %
-    \begin{itemize}
-        \item Most have some support
-        \vspace{0.5em}
-        \item but which make it easy to harness its power?
-    \end{itemize}
+        %\vspace{0.5em}
+        %\vspace{0.5em}
+    %%
+    %\begin{itemize}
+        %\item Most have some support
+        %\vspace{0.5em}
+        %\item but which make it easy to harness its power?
+    %\end{itemize}
 
-    \vspace{0.5em}
-    \vspace{0.5em}
+    %\vspace{0.5em}
+    %\vspace{0.5em}
 
-    Current winner:
-    %
-    \begin{itemize}
-        \item Google JAX (Python library)
-            \vspace{0.5em}
-    \end{itemize}
+    %Current winner:
+    %%
+    %\begin{itemize}
+        %\item Google JAX (Python library)
+            %\vspace{0.5em}
+    %\end{itemize}
 
-\end{frame}
-
+%\end{frame}
 
 
 
 \begin{frame}
 
-    Numba / Codon example
+    \Eg JAX 
 
-    \url{foobar}
+    \vspace{0.5em}
+    \vspace{0.5em}
+    \vspace{0.5em}
+    \vspace{0.5em}
+    \vspace{0.5em}
+    See code at
+    %
+    \begin{center}
+        \url{https://github.com/QuantEcon/tokyo_college_2023/}
+    \end{center}
 
 \end{frame}
-
 
 
 
@@ -870,35 +968,299 @@ print("1 + 1 = ", sum)
 \begin{frame}
     \frametitle{The limits of computer power}
 
-    * Linear assignment?
 
-    * Brute force optimization?
+    Consider optimizing a function via brute force
         
+\end{frame}
+
+
+
+
+\begin{frame}
+    
+    \begin{figure}
+       \begin{center}
+           \scalebox{.4}{\includegraphics{brute_force_1.png}}
+           \caption{The function to maximize}
+       \end{center}
+    \end{figure}
+
 \end{frame}
 
 
 
 \begin{frame}
     
-    * The importance of algorithms
-
-    * How algorithms interact with advances in hardware/software
+    \begin{figure}
+       \begin{center}
+           \scalebox{.4}{\includegraphics{brute_force_2.png}}
+           \caption{Grid of points to evaluate the function at}
+       \end{center}
+    \end{figure}
 
 \end{frame}
 
 \begin{frame}
+    
+    \begin{figure}
+       \begin{center}
+           \scalebox{.4}{\includegraphics{brute_force_3.png}}
+           \caption{Evaluations}
+       \end{center}
+    \end{figure}
 
-    What about machine learning and AI?
+\end{frame}
 
-    * Why machine learning is not enough 
 
-        -- current inflation unprecedented -- think about that word
+\begin{frame}
+    
+    Grid size = $20 \times 20 = 400$
 
-    * Insufficient and nonstationary data 
+    \vspace{0.5em}
+    Outcomes
 
-        -- forecasting GDP
+    \begin{itemize}
+        \item function evaluations $= 400$
+    \vspace{0.5em}
+        \item Time taken $\approx 0$
+    \vspace{0.5em}
+        \item Max value $= 1.951$
+    \vspace{0.5em}
+        \item True maximum $= 2$
+    \end{itemize}
 
-    * The need for careful mathematical modeling
+    \vspace{0.5em}
+    \vspace{0.5em}
+\end{frame}
+
+
+\begin{frame}
+    
+    \begin{figure}
+       \begin{center}
+           \scalebox{.4}{\includegraphics{brute_force_4.png}}
+           \caption{$50^2 = 2500$ evaluations}
+       \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    
+    \begin{itemize}
+        \item function evaluations $= 50^2$
+    \vspace{0.5em}
+        \item Time taken = $101$ microseconds
+    \vspace{0.5em}
+        \item Max value $= 1.992$
+    \vspace{0.5em}
+        \item True maximum $= 2$
+    \end{itemize}
+
+    \vspace{1em}
+
+
+\end{frame}
+
+
+\begin{frame}
+    
+    But now suppose we hav more choice variables
+
+    \begin{itemize}
+        \item 3 vars: $\max_{x_1, x_2, x_3} f(x_1, x_2, x_3)$
+        \vspace{0.5em}
+        \item 4 vars: $\max_{x_1, x_2, x_3, x_4} f(x_1, x_2, x_3, x_4)$
+        \vspace{0.5em}
+        \item $\cdots$
+    \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+    
+
+    If we have 50 grid points per variable and 
+    
+    \begin{itemize}
+        \item 2 variables then evaluations $=50^2 = 2500$
+        \vspace{0.5em}
+        \item 3 variables then evaluations $=50^3 = 125,000$
+        \vspace{0.5em}
+        \item 4 variables then evaluations $=50^4 = 6,250,000$
+        \vspace{0.5em}
+        \item 5 variables then evaluations $=50^5 = 312,500,000$
+        \vspace{0.5em}
+        \item $\cdots$
+    \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+    
+    \Eg Recent study: Optimal placement of drinks across vending machines in
+    Tokyo
+
+        \vspace{0.5em}
+        \vspace{0.5em}
+    Approximate dimensions of problem:
+
+    \begin{itemize}
+        \item Number of choices for each variable $=2$
+        \vspace{0.5em}
+        \item Number of choice variables $=1000$
+    \end{itemize}
+
+        \vspace{0.5em}
+        \vspace{0.5em}
+    Hence number of possibilities $=2^{1000}$
+
+    \vspace{1em}
+
+    How big is that?
+
+\end{frame}
+
+\begin{frame}[fragile]
+    
+\begin{pythoncode}
+In [10]: 2**1000
+Out[10]:
+107150860718626732094842504906000181056140481170
+553360744375038837035105112493612249319837881569
+585812759467291755314682518714528569231404359845
+775746985748039345677748242309854210746050623711
+418779541821530464749835819412673987675591655439
+460770629145711964776865421676604298316526243868
+37205668069376
+\end{pythoncode}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+    Suppose my machine evaluates about $10^9$ choices per second
+
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \vspace{0.5em}
+    How long would that take?
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+
+\begin{pythoncode}
+In [16]: (2**1000 / 10**9) / 31556926  # In years
+Out[16]:
+339547840365144349278007955863635707280678989995
+899349462539661933596146571733926965255861364854
+060286985707326991591901311029244639453805988092
+045933072657455119924381235072941549332310199388
+301571394569707026437986448403352049168514244509
+939816790601568621661265174170019913588941596
+\end{pythoncode}
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+
+    What about high performance computing?
+    
+    \begin{itemize}
+        \item faster CPUs
+        \vspace{0.5em}
+        \item clusters of GPUs
+        \vspace{0.5em}
+        \item $\cdots$
+    \end{itemize}
+
+        \vspace{0.5em}
+        \vspace{0.5em}
+        \vspace{0.5em}
+    Let's say speed up is $10^{12}$ (wildly optimistic)
+
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+
+\begin{pythoncode}
+In [19]: (2**1000 / 10**(9 + 12)) / 31556926
+Out[19]:
+3395478403651443492780079558636357072806789899958
+9934946253966193359614657173392696525586136485406
+0286985707326991591901311029244639453805988092045
+9330726574551199243812350729415493323101993883015
+7139456970702643798644840335204916851424450993981
+6790601568621661265174170019
+\end{pythoncode}
+
+    For comparison:
+
+\begin{pythoncode}
+In [20]: 5 * 10**9 # Expected lifespan of sun
+Out[20]: 5000000000
+\end{pythoncode}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+    Message: There are serious limits to computation
+
+    \vspace{1em}
+    What's required is clever analysis
+
+    \vspace{1em}
+    Exploit all available structure
+
+    \vspace{1em}
+    Good algorithms are still crucial
+
+    \vspace{1em}
+    Algorithms interact with advances in hardware/software
+
+\end{frame}
+
+
+
+\begin{frame}
+    \frametitle{What about machine learning \& AI?}
+
+    Current gen AI \underline{cannot} solve most economic problems
+
+    \vspace{1em}
+    Consider the current global inflationary episode
+
+    \begin{itemize}
+        \item Many aspects are unprecedented
+    \end{itemize}
+
+    \vspace{1em}
+    What will be the impact of policy interventions?
+
+    \begin{itemize}
+        \item Often we have no data
+    \end{itemize}
+
+    
+    \vspace{1em}
+    An ongoing need for careful mathematical modeling
     
 \end{frame}
 
